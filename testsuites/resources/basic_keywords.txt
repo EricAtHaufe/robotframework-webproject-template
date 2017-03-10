@@ -6,15 +6,26 @@ Library            Selenium2Library    15
 
 *** Keywords ***
 Basic -> Prepare
-    Run Keyword Unless   '${WEBDRIVER_PATH}' == 'none'    Copy File         ${WEBDRIVER_PATH}   .
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'chromedriver'        Copy File         ${WEBDRIVER_PATH}   .
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'chromedriver.exe'    Copy File         ${WEBDRIVER_PATH}   .
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'geckodriver'         Copy File         ${WEBDRIVER_PATH}   .
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'geckodriver.exe'     Copy File         ${WEBDRIVER_PATH}   .
 
 Basic -> Cleanup
-    Run Keyword Unless   '${WEBDRIVER_COPY}' == 'none'    Remove File       ${WEBDRIVER_COPY}
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'chromedriver'       Remove File       ${WEBDRIVER_COPY}
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'chromedriver.exe'   Remove File       ${WEBDRIVER_COPY}
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'geckodriver'        Remove File       ${WEBDRIVER_COPY}
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'geckodriver.exe'    Remove File       ${WEBDRIVER_COPY}
 
 Basic -> Open Application
     &{CAPS}=   Create Dictionary   phantomjs.page.settings.userAgent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/601.2.7 (KHTML, like Gecko) Version/9.0.1 Safari/601.2.7
-    Run Keyword If       '${WEBDRIVER_COPY}' == 'none'   Open Browser    ${BASE_URL}   ${WEBDRIVER_TYPE}   MainBrowser   http://localhost:${PHANTOMJS_PORT}    ${CAPS}
-    Run Keyword Unless   '${WEBDRIVER_COPY}' == 'none'   Open Browser    ${BASE_URL}   ${WEBDRIVER_TYPE}   MainBrowser
+    &{FFCAPS}=    Create Dictionary   marionette=True
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'none'               Open Browser    ${BASE_URL}   ${WEBDRIVER_TYPE}   MainBrowser   http://localhost:4444    ${CAPS}
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'chromedriver'       Open Browser    ${BASE_URL}   ${WEBDRIVER_TYPE}   MainBrowser
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'chromedriver.exe'   Open Browser    ${BASE_URL}   ${WEBDRIVER_TYPE}   MainBrowser
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'geckodriver'        Open Browser    ${BASE_URL}   browser=${WEBDRIVER_TYPE}   alias=MainBrowser   desired_capabilities=${FFCAPS}
+    Run Keyword If   '${WEBDRIVER_COPY}' == 'geckodriver.exe'    Open Browser    ${BASE_URL}   browser=${WEBDRIVER_TYPE}   alias=MainBrowser   desired_capabilities=${FFCAPS}
+    Set Window Size  1400     900
     Wait Until Element Is Visible   _dKg
     Capture Page Screenshot
 

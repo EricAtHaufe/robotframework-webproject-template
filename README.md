@@ -27,6 +27,12 @@ __Robot Framework and Selenium2Library for Python:__
 * Use `pip install robotframework --upgrade` to update the Robot Framework
 * Use `pip install robotframework-selenium2library --upgrade` to update the Robot Framework Selenium2Library
 
+__Provided executables and JARs:__     
+* Robot Framework JAR: http://repo1.maven.org/maven2/org/robotframework/robotframework/
+* Robot Framework Selenium2Library JAR: https://repo1.maven.org/maven2/com/github/markusbernhardt/robotframework-selenium2library-java/
+* Chromedriver: http://chromedriver.storage.googleapis.com/index.html
+* Geckodriver: https://github.com/mozilla/geckodriver/releases
+
 __Used executables:__     
 * PhantomJS: http://phantomjs.org/download.html
 

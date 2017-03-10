@@ -23,7 +23,7 @@ phantomjs (2.1.1)
 ## Updates
 
 __10th March 2017:__    
-* Added support for geckodriver and gecodriver binaries
+* Added support for geckodriver and added geckodriver binaries
 * Minor modifications to the basic-keywords that are determing which driver to use and thus to copy
 * Adding "." to the path in the run-scripts
 * The windows run-script is now a bat-script

@@ -19,3 +19,12 @@ robotframework (3.0.2)
 robotframework-selenium2library (1.8.0)    
 selenium (3.0.2)    
 phantomjs (2.1.1)    
+
+## Updates
+
+__10th March 2017:__    
+* Added support for geckodriver and gecodriver binaries
+* Minor modifications to the basic-keywords that are determing which driver to use and thus to copy
+* Adding "." to the path in the run-scripts
+* The windows run-script is now a bat-script
+

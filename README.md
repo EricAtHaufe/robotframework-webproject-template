@@ -23,9 +23,9 @@ phantomjs (2.1.1)
 ## How to update versions
 
 Robot Framework and Selenium2Library for Python:    
-* Use _pip list_ to check versions of installed python packages
-* Use _pip install robotframework --upgrade_ to update the Robot Framework
-* Use _pip install robotframework-selenium2library --upgrade_ to update the Robot Framework Selenium2Library
+* Use `pip list` to check versions of installed python packages
+* Use `pip install robotframework --upgrade` to update the Robot Framework
+* Use `pip install robotframework-selenium2library --upgrade` to update the Robot Framework Selenium2Library
 
 
 ## Updates
